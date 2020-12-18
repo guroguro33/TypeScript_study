@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/guroguro33/TypeScript_study/issues"
   },
-  "homepage": "https://github.com/guroguro33/TypeScript_study#readme"
+  "homepage": "https://github.com/guroguro33/TypeScript_study#readme",
+  "devDependencies": {
+    "typescript": "^3.9.4"
+  }
 }
