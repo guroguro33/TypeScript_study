@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "ts-node-dev --respawn",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/guroguro33/TypeScript_study#readme",
   "devDependencies": {
     "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.1",
     "typescript": "^3.9.4"
   }
 }
