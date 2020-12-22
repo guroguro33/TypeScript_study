@@ -76,3 +76,9 @@ npm run dev src/install-typescript.ts
   "editor.formatOnSave": true,
   "prettier.semi": true,
   "prettier.singleQuote" : true,
+
+## tsconfig.json の生成
+
+```
+npx tsc --init
+```
