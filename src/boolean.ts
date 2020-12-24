@@ -4,5 +4,5 @@ let name = 'TypeScript';
   
 let isFinished: boolean = true;
 isFinished = false;
-// isFinished = 0;
+// isFinished = 1;
 console.log({ isFinished });
