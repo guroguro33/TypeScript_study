@@ -82,3 +82,18 @@ npm run dev src/install-typescript.ts
 ```
 npx tsc --init
 ```
+
+## 型
+
+```
+let isFinished: boolean = true; // boolean
+let year: number = 1976; // number
+let name: string = 'Ham'; // string
+let numbers: number[] = [1, 2, 3]; // array
+let strings2: Array<string> = ['Tokyo', 'Osaka', 'Kyoto']; // 非推奨のarray
+let hairetsu: (string | number | boolean)[] = [1, false, 'japan']; // 共用型array
+let profile: [string, number] = ['Ham', 43]; // tuple 順番まで指定
+
+
+
+```
