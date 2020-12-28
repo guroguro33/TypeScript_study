@@ -86,14 +86,28 @@ npx tsc --init
 ## 型
 
 ```
-let isFinished: boolean = true; // boolean
-let year: number = 1976; // number
-let name: string = 'Ham'; // string
-let numbers: number[] = [1, 2, 3]; // array
+// boolean
+let isFinished: boolean = true;
+
+// number
+let year: number = 1976;
+
+// string
+let name: string = 'Ham';
+
+// array
+let numbers: number[] = [1, 2, 3];
 let strings2: Array<string> = ['Tokyo', 'Osaka', 'Kyoto']; // 非推奨のarray
 let hairetsu: (string | number | boolean)[] = [1, false, 'japan']; // 共用型array
 let profile: [string, number] = ['Ham', 43]; // tuple 順番まで指定
 
+// any(axiosのresponseなど型が不明な場合)
+let data: any = response.data;
+
+// void
+function returnNothing(): void {
+  console.log("I don't return nothing!");
+}
 
 
 ```
