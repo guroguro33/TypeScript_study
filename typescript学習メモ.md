@@ -85,7 +85,7 @@ npx tsc --init
 
 ## 型
 
-```
+```typescript
 // boolean
 let isFinished: boolean = true;
 
@@ -97,17 +97,48 @@ let name: string = 'Ham';
 
 // array
 let numbers: number[] = [1, 2, 3];
-let strings2: Array<string> = ['Tokyo', 'Osaka', 'Kyoto']; // 非推奨のarray
-let hairetsu: (string | number | boolean)[] = [1, false, 'japan']; // 共用型array
-let profile: [string, number] = ['Ham', 43]; // tuple 順番まで指定
+// 非推奨のarray
+let strings2: Array<string> = ['Tokyo', 'Osaka', 'Kyoto'];
+// 共用型array
+let hairetsu: (string | number | boolean)[] = [1, false, 'japan'];
+// tuple 順番まで指定
+let profile: [string, number] = ['Ham', 43];
 
 // any(axiosのresponseなど型が不明な場合)
 let data: any = response.data;
 
-// void
+// void（呼び元には帰ってくる）
 function returnNothing(): void {
   console.log("I don't return nothing!");
 }
 
+// null and undefined
+let absence: null = null;
+let data: undefined = undefined;
 
+// never（例外を起こすもの、呼び元に帰ってこない）
+function error(message: string): never {
+  throw new Error(message);
+}
+
+// object（あいまいobjectなら何でもOK）
+let profile1: object = { name: 'Ham' };
+// object（型指定が厳しく、こっちの方が良い）
+let profiles2: { name: string } = { name: 'Ham' };
+```
+
+## 型エイリアス
+
+```typescript
+// 型にエイリアスをつける。最初は大文字
+type Mojiretsu = string;
+const fooString: Mojiretsu = 'Hello';
+
+// 今あるものから型を取り出す
+const example = {
+  name: 'Ham',
+  age: 43,
+};
+
+type Profile2 = typeof example;
 ```
