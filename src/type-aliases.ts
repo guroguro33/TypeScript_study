@@ -8,8 +8,8 @@ const fooMojiretsu: Mojiretsu = 'Hello';
 
 // objectのエイリアス
 type Profile = {
-  name: string,
-  age: number,
+  name: string;
+  age: number;
 }
 
 const example1 = {

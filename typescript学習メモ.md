@@ -134,11 +134,31 @@ let profiles2: { name: string } = { name: 'Ham' };
 type Mojiretsu = string;
 const fooString: Mojiretsu = 'Hello';
 
-// 今あるものから型を取り出す
+type Profile1 = {
+  name: string;
+  age: number;
+};
+
+// 今あるものから型を取り出す「typeエイリアス」
 const example = {
   name: 'Ham',
   age: 43,
 };
 
 type Profile2 = typeof example;
+```
+
+## インターフェース
+
+```typescript
+interface ObjectInterface {
+  name: string;
+  age: number;
+}
+
+// typeエイリアスと同じように使用可能
+let object: ObjectInterface {
+  name: 'Ham-san',
+  age: 43,
+};
 ```
