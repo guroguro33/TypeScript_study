@@ -162,3 +162,17 @@ let object: ObjectInterface {
   age: 43,
 };
 ```
+
+## 型ガード（Type Guard）
+
+```typescript
+const kansu = (): number => 43;
+
+// 暫定的に型を指定したいとき、unknownを使う
+let numberUnknown: unknown = kansu();
+
+// 型ガードでnumber型のときのみ、if文の処理をする
+if (typeof numberUnknown === 'number') {
+  let sumUnknown = numberUnknown + 10;
+}
+```
