@@ -95,6 +95,10 @@ let year: number = 1976;
 // string
 let name: string = 'Ham';
 
+// union
+let value: number | string = 2021;
+value = 'apple';
+
 // array
 let numbers: number[] = [1, 2, 3];
 // 非推奨のarray
@@ -175,4 +179,24 @@ let numberUnknown: unknown = kansu();
 if (typeof numberUnknown === 'number') {
   let sumUnknown = numberUnknown + 10;
 }
+```
+
+## intersection 型（既存の型を組み合わせる）
+
+```typescript
+type Pitcher1 = {
+  throwingSpeed: number;
+};
+
+type Batter1 = {
+  battingAverage: number;
+};
+
+// 既存の型からintersection型を作る
+type twoWayPlayer = Pitcher1 & Batter1;
+
+const OtaniShohei: twoWayPlayer = {
+  throwingSpeed: 165,
+  battingAverage: 0.286,
+};
 ```
