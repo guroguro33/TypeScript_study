@@ -218,3 +218,34 @@ month = 12;
 // booleanのリテラル型
 let TRUE: true = true;
 ```
+
+## 関数
+
+### 通常の関数
+
+- 引数と返り値にアノテーションをつける
+
+```typescript
+function bmi(
+  height: number, // 引数１
+  weight: number // 引数2
+): number {
+  // 返り値
+  return weight / (height * height);
+}
+```
+
+### 無名関数
+
+- 通常＋必要に応じて変数名にアノテーションをつける
+
+```typescript
+let bmi: (height: number, weight: number) => number = function (
+  // 変数名につける
+  height: number, // 引数1
+  weight: number // 引数2
+): number {
+  // 返り値
+  return weight / (height * height);
+};
+```
