@@ -249,3 +249,28 @@ let bmi: (height: number, weight: number) => number = function (
   return weight / (height * height);
 };
 ```
+
+### アロー関数
+
+```typescript
+let bmi: (height: number, weight: number) => number = (
+  height: number,
+  weight: number
+): number => weight / (height * height);
+```
+### optional引数
+- 引数名の最後に?をつけることでoptional引数になる
+```typescript
+let bmi: (height: number, weight: number, printable?: boolean) => number = (
+  height: number,
+  weight: number,
+  printable?: boolean
+): number => {
+  const bmi: number = weight / (height * height);
+
+  if (printable) {
+    console.log({bmi});
+  }
+  return bmi;
+}
+````
