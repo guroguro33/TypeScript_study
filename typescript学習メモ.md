@@ -258,8 +258,11 @@ let bmi: (height: number, weight: number) => number = (
   weight: number
 ): number => weight / (height * height);
 ```
-### optional引数
-- 引数名の最後に?をつけることでoptional引数になる
+
+### optional 引数
+
+- 引数名の最後に?をつけることで optional 引数になる
+
 ```typescript
 let bmi: (height: number, weight: number, printable?: boolean) => number = (
   height: number,
@@ -269,8 +272,27 @@ let bmi: (height: number, weight: number, printable?: boolean) => number = (
   const bmi: number = weight / (height * height);
 
   if (printable) {
-    console.log({bmi});
+    console.log({ bmi });
   }
   return bmi;
-}
-````
+};
+```
+
+### default 引数
+
+- js と同様にイコールをつけるとデフォルト引数になる
+
+### 残余引数(Rest パラメータ）
+
+- 可変長引数をとるときは...arg と記載する
+
+```typescript
+// 総和用のreducer関数を用意
+const reducer = (accumulator: number, currentValue: number) => {
+  return accumulator + currentValue;
+};
+
+const sum = (...values: number[]): number => {
+  return values.reduce(reducer);
+};
+```
