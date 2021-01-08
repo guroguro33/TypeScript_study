@@ -297,7 +297,7 @@ const sum = (...values: number[]): number => {
 };
 ```
 
-## オーバーロード
+### オーバーロード
 
 - 事前に型付きで抽象関数を宣言しておき、その後、typeof で型チェックしながら定義する
 
@@ -312,4 +312,31 @@ function double(value: any): any {
     return value + value;
   }
 }
+```
+
+## クラス
+
+### 基本
+
+- プロパティに型指定をする
+- コンストラクタの引数にも型指定するが、戻り値型には不要
+- メソッドには戻り値型を指定
+
+```typescript
+class Person {
+  name: string;
+  age: number;
+
+  // constructorに戻り値型は記載していけない
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  profile(): string {
+    return `name: ${this.name}, age: ${this.age}`;
+  }
+}
+let taro = new Person('Taro', 30);
+console.log(taro.profile());
 ```
