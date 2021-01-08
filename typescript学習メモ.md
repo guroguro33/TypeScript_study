@@ -296,3 +296,20 @@ const sum = (...values: number[]): number => {
   return values.reduce(reducer);
 };
 ```
+
+## オーバーロード
+
+- 事前に型付きで抽象関数を宣言しておき、その後、typeof で型チェックしながら定義する
+
+```typescript
+function double(value: number): number;
+function double(value: string): string;
+
+function double(value: any): any {
+  if (typeof value === 'number') {
+    return value * 2;
+  } else {
+    return value + value;
+  }
+}
+```
