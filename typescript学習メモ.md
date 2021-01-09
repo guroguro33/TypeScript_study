@@ -340,3 +340,39 @@ class Person {
 let taro = new Person('Taro', 30);
 console.log(taro.profile());
 ```
+
+### アクセス修飾子
+
+- public (Java と違って宣言なしも public であり、通常記載しない)
+- protected 継承先でも使える
+- private class 内のみで使える
+
+```typescript
+class Person {
+  public name: string;
+  protected age: number;
+  protected nationality: string;
+  // constructorに戻り値型は記載していけない
+  constructor(name: string, age: number, nationality: string) {
+    this.name = name;
+    this.age = age;
+    this.nationality = nationality;
+  }
+
+  profile(): string {
+    return `name: ${this.name}, age: ${this.age}`;
+  }
+}
+
+// 継承クラス
+class Android extends Person {
+  constructor(name: string, age: number, nationality: string) {
+    // superが使える
+    super(name, age, nationality);
+  }
+
+  profile(): string {
+    return `name: ${this.name}, age: ${this.age}, nationality: ${this.nationality}`;
+  }
+}
+```
