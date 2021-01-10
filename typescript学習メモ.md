@@ -376,3 +376,13 @@ class Android extends Person {
   }
 }
 ```
+
+### コンストラクタの便利な使い方
+
+- プロパティと setter と getter が省略
+
+```typescript
+class Person {
+  constructor(public name: string, private age: number) {}
+}
+```
