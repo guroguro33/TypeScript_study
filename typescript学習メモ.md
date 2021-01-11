@@ -386,3 +386,37 @@ class Person {
   constructor(public name: string, private age: number) {}
 }
 ```
+
+### getter と setter
+
+- メソッドは get XXX として作る
+- プロパティは\_XXX にする慣習
+- setter は引数にセットするわけではなく、＝でセットする
+
+```typescript
+class MyNumberCard{
+
+  private _owner: string; // アンダースコア入れる
+  private _secretNumber: number; // アンダースコア入れる
+
+  constructor(owner: string, secretNumber: number ) {
+    this._owner = owner;
+    this._secretNumber = secretNumber;
+  }
+
+  // getter
+  get owner():string {
+    return this._owner;
+  }
+
+  // setter
+  set secretNumber(secretNumber:number) {
+    this._secretNumber = secretNumber;
+  }
+}
+// 使い方
+et card = new MyNumberCard('ハムさん', 1234567890);
+console.log(card.owner);
+card.secretNumber = 1111111111; //setterは引数に入れない
+
+```
