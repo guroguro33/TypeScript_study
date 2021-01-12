@@ -363,17 +363,25 @@ class Person {
     return `name: ${this.name}, age: ${this.age}`;
   }
 }
-
 // 継承クラス
 class Android extends Person {
   constructor(name: string, age: number, nationality: string) {
-    // superが使える
+    // super が使える
     super(name, age, nationality);
   }
-
   profile(): string {
     return `name: ${this.name}, age: ${this.age}, nationality: ${this.nationality}`;
   }
+}
+```
+
+### readonly 修飾子
+
+- アクセス修飾子のあとに readonly 修飾子をつけることにより読取専用になる
+
+```typescript
+class VisaCard {
+  constructor(public readonly owner: string) {}
 }
 ```
 
@@ -418,5 +426,9 @@ class MyNumberCard{
 et card = new MyNumberCard('ハムさん', 1234567890);
 console.log(card.owner);
 card.secretNumber = 1111111111; //setterは引数に入れない
+
+```
+
+```
 
 ```
