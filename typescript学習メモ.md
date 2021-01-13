@@ -429,6 +429,18 @@ card.secretNumber = 1111111111; //setterは引数に入れない
 
 ```
 
-```
+### static メンバ
 
+- プロパティ名に static をつける
+
+```typescript
+class Me {
+  static isProgrammer: boolean = true;
+  static firstName: string = 'Atushi';
+  static lastName: string = 'Ishida';
+
+  static work() {
+    return `Hey, guys! This is ${this.firstName} Are you interested in TypeScript? Let's dive into TypeScript!`;
+  }
+}
 ```
