@@ -444,3 +444,38 @@ class Me {
   }
 }
 ```
+
+### 名前空間
+
+- namespace 空間名 で名前空間を区切る
+- namespace 内のクラスには export をつける
+- namespace 内で namespace をネストできるが、export をつける
+
+```typescript
+namespace English {
+  // 名前空間
+  export class Person {
+    // クラス名にexport
+    constructor(
+      public firstName: string,
+      public middleName: string,
+      public lastName: string
+    ) {}
+  }
+}
+namespace Japanese {
+  // 名前空間
+  export namespace Tokyo {
+    // 名前空間のネスト(export付)
+    export class Person {
+      constructor(public name: string) {}
+    }
+  }
+  export namespace Osaka {
+    // 名前空間のネスト(export付)
+    export class Person {
+      constructor(public name: string) {}
+    }
+  }
+}
+```
