@@ -479,3 +479,31 @@ namespace Japanese {
   }
 }
 ```
+
+### 継承
+
+- Java 同様でコンストラクタ内で呼ぶ、super.メソッド名()、super.プロパティ名が使える
+
+```typescript
+// 親クラス
+class Animal {
+  constructor(public name: string) {}
+  run(): string {
+    return 'I can run';
+  }
+}
+// 子クラス
+class Lion extends Animal {
+  public speed: number;
+
+  constructor(name: string, speed: number) {
+    // superで親コンストラクタを呼ぶ
+    super(name);
+    this.speed = speed;
+  }
+  run(): string {
+    // super.メソッド名、super.プロパティ名で呼び出す
+    return `I'm ${this.name}. ${super.run()} ${this.speed}km/h.`;
+  }
+}
+```
