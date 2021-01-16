@@ -150,17 +150,39 @@ type Profile2 = typeof example;
 
 ## インターフェース
 
+- 型として作ることができる
+
 ```typescript
+// 型の例
 interface ObjectInterface {
   name: string;
   age: number;
 }
-
 // typeエイリアスと同じように使用可能
 let object: ObjectInterface {
   name: 'Ham-san',
   age: 43,
 };
+```
+
+- 以下は Java と同様、実装して使用する
+
+```typescript
+interface Kenja {
+  ionazun(): void; // シグネチャ
+}
+interface Senshi {
+  kougeki(): void;
+}
+// 実装
+class Jiro implements Kenja, Senshi {
+  ionazun(): void {
+    console.log('ionazun');
+  }
+  kougeki(): void {
+    console.log('kougeki');
+  }
+}
 ```
 
 ## 型ガード（Type Guard）
@@ -504,6 +526,28 @@ class Lion extends Animal {
   run(): string {
     // super.メソッド名、super.プロパティ名で呼び出す
     return `I'm ${this.name}. ${super.run()} ${this.speed}km/h.`;
+  }
+}
+```
+
+### 抽象クラス
+
+- Java 同様に abstract が使用できる
+
+```typescript
+abstract class Animal {
+  abstract cry(): string;
+}
+
+class Lion extends Animal {
+  cry() {
+    return 'roar';
+  }
+}
+
+class Tiger extends Animal {
+  cry() {
+    return 'grrrr';
   }
 }
 ```
