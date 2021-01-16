@@ -507,3 +507,25 @@ class Lion extends Animal {
   }
 }
 ```
+
+### 抽象クラス
+
+- Java 同様に abstract が使用できる
+
+```typescript
+abstract class Animal {
+  abstract cry(): string;
+}
+
+class Lion extends Animal {
+  cry() {
+    return 'roar';
+  }
+}
+
+class Tiger extends Animal {
+  cry() {
+    return 'grrrr';
+  }
+}
+```
