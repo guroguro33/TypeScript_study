@@ -551,3 +551,31 @@ class Tiger extends Animal {
   }
 }
 ```
+
+## 高度な型
+
+### 型の互換性
+
+- 文字列リテラル型などのリテラル型は上位型と互換性あり
+- 構造的部分型であり、メンバが一致すれば互換性あり
+- Java や PHP は公称型であり、継承しているかで互換性を判断
+
+```typescript
+// リテラル型
+let fooStringLiteral: 'fooStringLiteral' = 'fooStringLiteral';
+fooString = fooStringLiteral; // 文字列リテラル型は文字列型の一部
+
+// 構造的部分型
+interface Animal {
+  // ageとnameを持っている
+  age: number;
+  name: string;
+}
+class Person {
+  // 同じくageとnameを持っている
+  constructor(public age: number, public name: string) {}
+}
+// メンバが一致していれば互換性はある
+let me: Animal;
+me = new Person(43, 'はむさん');
+```
