@@ -579,3 +579,29 @@ class Person {
 let me: Animal;
 me = new Person(43, 'はむさん');
 ```
+
+## ジェネリクス
+
+- 関数は関数名の直後に<T>をつける
+- クラスはクラス名の直後に<T>をつける
+- 両者とも型は全て T とする
+
+```typescript
+// 関数
+const echo = <T>(arg: T): T => {
+  return arg;
+};
+function Func<T>(arg: T): T {
+  return arg;
+}
+console.log(echo<number>(100));
+
+// クラス
+class Mirror<T> {
+  constructor(public value: T) {}
+  echo(): T {
+    return this.value;
+  }
+}
+console.log(new Mirror<number>(123).echo());
+```
