@@ -580,7 +580,7 @@ let me: Animal;
 me = new Person(43, 'はむさん');
 ```
 
-## ジェネリクス
+### ジェネリクス
 
 - 関数は関数名の直後に<T>をつける
 - クラスはクラス名の直後に<T>をつける
@@ -604,4 +604,18 @@ class Mirror<T> {
   }
 }
 console.log(new Mirror<number>(123).echo());
+```
+
+### 型アサーション
+
+- キャストではない。any 型だったりを型指定するもの
+- 互換性がないとアサーションできない
+- as と<>の２種類あるが、<>は JSX 構文と似ているため非推奨
+
+```typescript
+let name: any = 'Ham';
+// asを使ったアサーション
+let length = (name as string).length;
+// jsxで使われるものに似ているため非推奨
+let length2 = (<string>name).length;
 ```
