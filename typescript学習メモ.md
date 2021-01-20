@@ -619,3 +619,22 @@ let length = (name as string).length;
 // jsxで使われるものに似ているため非推奨
 let length2 = (<string>name).length;
 ```
+
+### const アサーション
+
+- 型アサーションと別物
+- 構文の最後に as const をつける
+- let nickname = 'Ham' as const;とすると Ham 型になる
+- オブジェクトにつけると、内容の書き換え不可(readonly 化)
+
+```typescript
+// as constをつけて、Ham型にする
+let nickname = 'Ham' as const;
+nickname = 'Ham';
+
+// as constをつけるとreadonly属性が付与
+let profile = {
+  name: 'Atsushi',
+  height: 180,
+} as const;
+```
