@@ -638,3 +638,15 @@ let profile = {
   height: 180,
 } as const;
 ```
+
+### nullable な型
+
+- 型指定時に union 型として| null を設定する
+
+```typescript
+// 変数ageにはnumber型かnullが入る設定
+let profile: { name: string; age: number | null } = {
+  name: 'Ham',
+  age: null,
+};
+```
