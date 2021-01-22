@@ -284,6 +284,7 @@ let bmi: (height: number, weight: number) => number = (
 ### optional 引数
 
 - 引数名の最後に?をつけることで optional 引数になる
+- optional 引数はなくてもコンパイルエラーにならない
 
 ```typescript
 let bmi: (height: number, weight: number, printable?: boolean) => number = (
@@ -649,4 +650,26 @@ let profile: { name: string; age: number | null } = {
   name: 'Ham',
   age: null,
 };
+```
+
+### インデックスシグネチャ
+
+- 汎用性のある型インデックスを定義するもの
+- インデックス部分に[index: string]などと記載すると自由なインデックスを設定できる
+
+```typescript
+// How to write index signatures
+// { [ index: typeForIndex]: typeForValue }
+interface Profile {
+  name: string;
+  underTwenty: boolean;
+  [index: string]: string | number | boolean;
+}
+// nameとunderTwentyは必須
+let profile: Profile = { name: 'Ham', underTwenty: false };
+
+// 未定義のageやnationalityを設定できる
+profile.name = 'Ham';
+profile.age = 43;
+profile.nationality = 'Japan';
 ```
