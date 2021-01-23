@@ -673,3 +673,29 @@ profile.name = 'Ham';
 profile.age = 43;
 profile.nationality = 'Japan';
 ```
+
+## Utility Types
+
+- コード内で型変換を容易にする為に TypeScript が提供する(便利な関数のような)型達
+
+### Partial<T>
+
+- T に型を入れることで、その型のプロパティは全て?がついたオプションとなった型に変換できる
+
+### Required<T>
+
+- T に型を入れることで、その型のプロパティは全て?がない必須項目となった型に変換できる
+
+```typescript
+// ベースの型
+type Profile = {
+  name: string;
+  age?: number;
+  zipCode: number;
+};
+
+// 型PartialTypeのプロパティは全て?がついたオプションとなる
+type PartialType = Partial<Profile>;
+// 型RequiredTypeのプロパティは全て?がない必須項目
+type RequiredType = Required<Profile>;
+```
