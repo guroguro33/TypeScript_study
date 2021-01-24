@@ -699,3 +699,13 @@ type PartialType = Partial<Profile>;
 // 型RequiredTypeのプロパティは全て?がない必須項目
 type RequiredType = Required<Profile>;
 ```
+
+## Mapped types
+
+- Partial の定義で使っている in keyof を使って、新しい型を作るもの
+
+```typescript
+// Partialの定義
+// in keyof Tで型Tからkeyを取り出して、新しい型を?付きで作る
+type Optional<T> = { [P in keyof T]?: T[P] | null };
+```

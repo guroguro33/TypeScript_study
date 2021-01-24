@@ -9,7 +9,7 @@ type Profile = {
 
 // 型PartialTypeのプロパティは全て?がついたオプションとなる
 type PartialType = Partial<Profile>;
-// 型
+// 型RequiredTypeのプロパティは全て?がない必須項目となる
 type RequiredType = Required<Profile>;
 
 
