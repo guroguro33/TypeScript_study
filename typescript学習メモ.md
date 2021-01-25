@@ -700,7 +700,7 @@ type PartialType = Partial<Profile>;
 type RequiredType = Required<Profile>;
 ```
 
-## Mapped types
+### Mapped types
 
 - Partial の定義で使っている in keyof を使って、新しい型を作るもの
 
@@ -708,4 +708,21 @@ type RequiredType = Required<Profile>;
 // Partialの定義
 // in keyof Tで型Tからkeyを取り出して、新しい型を?付きで作る
 type Optional<T> = { [P in keyof T]?: T[P] | null };
+```
+
+### Readonly types
+
+- 読取専用の型に変換。全てのプロパティが readonly になる
+
+```typescript
+type Profile = {
+  name: string;
+  age: number;
+};
+// Readonly<T>で変換される
+type PersonalDataType = Readonly<Profile>;
+const friend: PersonalDataType = {
+  name: 'Shigeru',
+  age: 40,
+};
 ```
