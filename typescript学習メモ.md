@@ -726,3 +726,24 @@ const friend: PersonalDataType = {
   age: 40,
 };
 ```
+
+### Record types
+
+- 組み込み型？のオブジェクトの型定義をシンプルに記述
+- Record<K, T>と記述（K はユニオン型）
+
+```typescript
+// ユニオン型
+type Prefectures = 'Tokyo' | 'Chiba' | 'Tottori' | 'Shiga';
+type Covid19InfectionInfo = {
+  kanji_name: string; // 名前
+  confirmed_cases: number; // 感染者数
+};
+
+// Record<K, T>を使う。要素を増やすときは上記prefecturesに追加
+const covid19Japan: Record<Prefectures, Covid19InfectionInfo> = {
+  Tokyo: { kanji_name: '東京', confirmed_cases: 1960 },
+  Chiba: { kanji_name: '千葉', confirmed_cases: 249 },
+  Tottori: { kanji_name: '鳥取', confirmed_cases: 2 },
+};
+```
