@@ -788,3 +788,27 @@ type NullableTypes = string | number | null | undefined;
 // nullとundefinedは除外される
 type NonNullableTypes = NonNullable<NullableTypes>;
 ```
+
+### Pick types
+
+- Pick<T, K> 型 T の中から K の型だけ取り出して設定
+
+### Omit types
+
+- Omit<T, K> 型 T の中から K の型を除外して設定
+
+```typescript
+type DetailedProfile = {
+  name: string;
+  height: number;
+  weight: number;
+};
+
+// Pick<T, K> 型Tの中からKの型だけ取り出して設定
+type SimpleProfile = Pick<DetailedProfile, 'name' | 'height'>;
+// nameとheightが設定
+
+// Omit<T, K> 型Tの中からKの型を除外して設定
+type SmallProfile = Omit<DetailedProfile, 'weight'>;
+// nameとheightが設定
+```
