@@ -812,3 +812,15 @@ type SimpleProfile = Pick<DetailedProfile, 'name' | 'height'>;
 type SmallProfile = Omit<DetailedProfile, 'weight'>;
 // nameとheightが設定
 ```
+
+### Return types
+
+- ReturnType<typeof 関数> 返り値の型を設定する
+
+```typescript
+function add(a: number, b: number) {
+  return a + b;
+}
+// add関数の返り値の型numberを設定する
+type ReturnTypeFromAdd = ReturnType<typeof add>;
+```
