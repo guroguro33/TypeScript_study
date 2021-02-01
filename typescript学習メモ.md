@@ -824,3 +824,22 @@ function add(a: number, b: number) {
 // add関数の返り値の型numberを設定する
 type ReturnTypeFromAdd = ReturnType<typeof add>;
 ```
+
+### Parameters types
+
+- Prameters<typeof 関数> 引数の型を設定する
+
+```typescript
+const debugProfile = (name: string, age: number) => {
+  console.log({ name, age });
+};
+debugProfile('Ham', 43);
+
+// Parameters<typeof F>で関数Fの引数の型を取得する
+// 他の人が作った関数など容易に変更できないものから取得することが多い
+type Profile = Parameters<typeof debugProfile>;
+// 定数profileに設定
+const profile: Profile = ['Gloria', 76];
+// 関数debugProfileの引数に入れることができる
+debugProfile(...profile);
+```
