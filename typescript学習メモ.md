@@ -843,3 +843,27 @@ const profile: Profile = ['Gloria', 76];
 // 関数debugProfileの引数に入れることができる
 debugProfile(...profile);
 ```
+
+### ConstructorParameters
+
+- ConstructorParameters<クラスタイプ> コンストラクタの引数の型を取り出して型を作る
+- typeof でクラスからクラスの型を作り、引数に入れる
+
+```typescript
+// Personクラスを定義
+class Person {
+  name: string;
+  age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+// PersonTypeを作る
+type PersonType = typeof Person;
+// PersonTypeからConstructorParameters<>を使う
+type Profile = ConstructorParameters<PersonType>;
+
+const profile: Profile = ['Ham', 43];
+const ham = new Person(...profile);
+```
