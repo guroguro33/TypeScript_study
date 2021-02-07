@@ -867,3 +867,16 @@ type Profile = ConstructorParameters<PersonType>;
 const profile: Profile = ['Ham', 43];
 const ham = new Person(...profile);
 ```
+
+## React と TypeScript
+
+### FunctionComponent
+
+- 関数の変数に型アノテーションをつける
+- React.FC と省略可能
+
+```typescript
+const App: React.FunctionComponent<AppProps> = ({ message }: AppProps) => {
+  return <div>{message}</div>;
+};
+```
