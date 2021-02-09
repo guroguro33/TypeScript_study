@@ -867,3 +867,50 @@ type Profile = ConstructorParameters<PersonType>;
 const profile: Profile = ['Ham', 43];
 const ham = new Person(...profile);
 ```
+
+## React と TypeScript
+
+### FunctionComponent
+
+- 関数の変数に型アノテーションをつける
+- React.FC と省略可能
+
+```typescript
+const App: React.FunctionComponent<AppProps> = ({ message }: AppProps) => {
+  return <div>{message}</div>;
+};
+```
+
+### useState
+
+- 16.8 から登場した Hooks の中のフック
+- 関数コンポーネントの中でローカルな state を使うために呼び出す。
+- const [x, setX] = useState(初期値)
+
+```typescript
+import React, { useState } from 'react'; // reactとuseStateの読み込み
+
+// React.FunctionComponentはReact.FCと省略可能
+const Counter: React.FC<{}> = () => {
+  const initialValue: any = 0;
+  const [value, setValue] = useState<number>(initialValue);
+
+  const increment = () => {
+    setValue((prevState) => prevState + 1);
+  };
+
+  const decrement = () => {
+    setValue((prevState) => prevState - 1);
+  };
+
+  return (
+    <div>
+      <div> value: {value}</div>
+      <button onClick={increment}>+1</button>
+      <button onClick={decrement}>-1</button>
+    </div>
+  );
+};
+
+export default Counter; // Counterの出力
+```
