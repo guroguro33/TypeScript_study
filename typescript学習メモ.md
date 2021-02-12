@@ -116,7 +116,7 @@ function returnNothing(): void {
 let absence: null = null;
 let data: undefined = undefined;
 
-// never（例外を起こすもの、呼び元に帰ってこない）
+// never（例外を起こすもの、呼び元に帰cd ..ってこない）
 function error(message: string): never {
   throw new Error(message);
 }
