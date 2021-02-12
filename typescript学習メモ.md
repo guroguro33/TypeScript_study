@@ -893,6 +893,7 @@ import React, { useState } from 'react'; // reactとuseStateの読み込み
 // React.FunctionComponentはReact.FCと省略可能
 const Counter: React.FC<{}> = () => {
   const initialValue: any = 0;
+  // useStateでvalueとsetValueを定義
   const [value, setValue] = useState<number>(initialValue);
 
   const increment = () => {
@@ -913,4 +914,44 @@ const Counter: React.FC<{}> = () => {
 };
 
 export default Counter; // Counterの出力
+```
+
+### useRef と useEffect
+
+- useRef で初期値をもって、useEffect で render 時に処理をする？
+- import React, {useEffect, useRef, useState} from 'react';する
+
+```typescript
+// useRefで初期値を設定
+const renderTimes = useRef<number>(0);
+
+// renderされるたびに実行
+useEffect(() => {
+  renderTimes.current += 1;
+});
+
+return (
+  <div>
+    <div>This component was re-rendered {renderTimes.current} times!</div>
+  </div>
+);
+```
+
+- focus の方法
+
+```typescript
+// nonNullアサーションオペレータ!で、nullじゃないことを伝える
+const ref = useRef<HTMLInputElement>(null!);
+const focusInput = () => {
+  // オプショナルチェインを使った場合
+  // ref.current?.focus();
+
+  ref.current.focus();
+};
+return (
+  <div>
+    <input ref={ref} type="text" />
+    <button onClick={focusInput}>Click Me!</button>
+  </div>
+);
 ```
