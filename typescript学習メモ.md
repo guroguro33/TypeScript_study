@@ -243,6 +243,15 @@ month = 12;
 let TRUE: true = true;
 ```
 
+## アンビエント宣言
+- declareキーワード を使いアンビエント宣言をしておくことで、TypeScriptでも動作するようになる
+```typescript
+declare let x: number;
+
+x = 30;
+console.log(x);
+```
+
 ## 関数
 
 ### 通常の関数
