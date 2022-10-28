@@ -122,6 +122,8 @@ function error(message: string): never {
 }
 
 // object（あいまいobjectなら何でもOK）
+// object型を指定するとjsのほぼ全てのオブジェクトを指定することになり、あまり良くない
+// object型ではなく、具体的な構造を書く方が良い
 let profile1: object = { name: 'Ham' };
 // object（型指定が厳しく、こっちの方が良い）
 let profiles2: { name: string } = { name: 'Ham' };
