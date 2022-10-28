@@ -457,6 +457,10 @@ card.secretNumber = 1111111111; //setterは引数に入れない
 ### static メンバ
 
 - プロパティ名に static をつける
+- プライベートなフィールドを#で定義できるようになった(ES2022)
+- TypeScriptはprivate修飾子とClass Fieldsの両方が使用可能
+  - private修飾子：コンパイル後はパブリックなフィールドになるので、ソフトプライベート
+  - Class Fields：コンパイル後もプライベートなままなのでハードプライベート
 
 ```typescript
 class Me {
@@ -467,6 +471,33 @@ class Me {
   static work() {
     return `Hey, guys! This is ${this.firstName} Are you interested in TypeScript? Let's dive into TypeScript!`;
   }
+}
+```
+
+```typescript
+class Point {
+	#x: number // privateなメンバは#をつける
+	#y: number
+	z: number // 何もつけないとpublic
+
+	constructor(x: number, y: number) {
+		this.#x = x
+		this.#y = y
+	}
+	
+	// getで定義可能
+	get getX() {
+		return this.#x
+	}
+	
+	get getY() {
+		return this.#y
+	}
+
+	public add(p: Point) {
+		this.#x += p.x
+		this.#y += p.y
+	} 
 }
 ```
 
