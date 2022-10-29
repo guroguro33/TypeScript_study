@@ -188,6 +188,8 @@ class Jiro implements Kenja, Senshi {
 ```
 
 ## 型ガード（Type Guard）
+- ユニオン型など受け取った際に、typeof, instanceof, inを使って型を判定し、条件式で絞り込む
+- 変数がnullやundefinedを扱う場合にユニオン型で定義するため、型ガードは頻繁に使用する
 
 ```typescript
 const kansu = (): number => 43;
@@ -199,6 +201,24 @@ let numberUnknown: unknown = kansu();
 if (typeof numberUnknown === 'number') {
   let sumUnknown = numberUnknown + 10;
 }
+
+// instanceofの場合
+function getYear(d: string | Date): number {
+  if (d instanceof Date) {
+    return d.getFullYear()
+  } else {
+    const date = new Date(d)
+    return date.getFullYear()
+  }
+}
+
+// ユーザー定義型ガード
+// 判定部分を関数化して使用する
+// 変数名 is 型名 という返り値の書き方が必要
+fucntion isString(d: string | Date): d is string {
+  return typeof d === 'string'
+}
+
 ```
 
 ## intersection 型（既存の型を組み合わせる）
